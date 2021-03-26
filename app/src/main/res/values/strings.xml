@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">BC ADS 4</string>
+    <string name="all_movie">All Movie</string>
+    <string name="view_all">View All</string>
+    <string name="background_home">Background Home</string>
+    <string name="poster">Poster</string>
+    <string name="title">Title</string>
+</resources>
