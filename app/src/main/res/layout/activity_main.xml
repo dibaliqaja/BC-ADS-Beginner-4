@@ -11,13 +11,13 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="16dp"
+        android:src="@drawable/poster_top"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/background_home"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@drawable/poster_top"
-        android:scaleType="centerCrop"
-        android:contentDescription="@string/background_home" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"

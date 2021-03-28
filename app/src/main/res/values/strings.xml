@@ -5,4 +5,6 @@
     <string name="background_home">Background Home</string>
     <string name="poster">Poster</string>
     <string name="title">Title</string>
+    <string name="genre">Genre</string>
+    <string name="description">Description</string>
 </resources>

@@ -1,5 +1,6 @@
 package com.example.bcads4
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.LinearLayout
@@ -22,73 +23,75 @@ class MainActivity : AppCompatActivity() {
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_ad_astra,
-                0,
+                R.raw.video_a_rainy_day,
                 0.0F
             )
         )
 
         dataList.add(
             FilmModel(
-                "1",
+                "2",
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_avengers,
-                0,
+                R.raw.video_sample,
                 0.0F
             )
         )
 
         dataList.add(
             FilmModel(
-                "1",
+                "3",
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_poster_a_rainy_day_in_new_york,
-                0,
+                R.raw.video_sample,
                 0.0F
             )
         )
 
         dataList.add(
             FilmModel(
-                "1",
+                "4",
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_poster_sonic,
-                0,
+                R.raw.video_sonic,
                 0.0F
             )
         )
 
         dataList.add(
             FilmModel(
-                "1",
+                "5",
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_ad_astra,
-                0,
+                R.raw.video_sample,
                 0.0F
             )
         )
 
         dataList.add(
             FilmModel(
-                "1",
+                "6",
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
                 R.drawable.ic_poster_sonic,
-                0,
+                R.raw.video_sonic,
                 0.0F
             )
         )
 
         rv_movie.adapter = MovieAdapter(dataList) {
-
+            val intent = Intent(this, DetailActivity::class.java)
+                .putExtra("data", it)
+            startActivity(intent)
         }
     }
 }
