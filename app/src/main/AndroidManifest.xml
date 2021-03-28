@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BCADS4">
+        <activity
+            android:name=".AllMovieActivity"
+            android:label="@string/title_activity_all_movie"
+            android:theme="@style/Theme.BCADS4.NoActionBar"></activity>
         <activity android:name=".DetailActivity">
-            <meta-data android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity"/>
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
         </activity>
         <activity android:name=".MainActivity">
             <intent-filter>

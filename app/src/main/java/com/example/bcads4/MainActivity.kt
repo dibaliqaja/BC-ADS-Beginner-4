@@ -16,6 +16,22 @@ class MainActivity : AppCompatActivity() {
 
         rv_movie.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
+        loadDataSample()
+
+        rv_movie.adapter = MovieAdapter(dataList) {
+            val intent = Intent(this, DetailActivity::class.java)
+                .putExtra("data", it)
+            startActivity(intent)
+        }
+
+        tv_view_all.setOnClickListener {
+            val intent = Intent(this, AllMovieActivity::class.java)
+                .putExtra("data", dataList)
+            startActivity(intent)
+        }
+    }
+
+    private fun loadDataSample() {
         dataList.add(
             FilmModel(
                 "1",
@@ -24,7 +40,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_ad_astra,
                 R.raw.video_a_rainy_day,
-                0.0F
+                3.0F
             )
         )
 
@@ -36,7 +52,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_avengers,
                 R.raw.video_sample,
-                0.0F
+                5.0F
             )
         )
 
@@ -48,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_poster_a_rainy_day_in_new_york,
                 R.raw.video_sample,
-                0.0F
+                4.0F
             )
         )
 
@@ -60,7 +76,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_poster_sonic,
                 R.raw.video_sonic,
-                0.0F
+                2.0F
             )
         )
 
@@ -72,7 +88,7 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_ad_astra,
                 R.raw.video_sample,
-                0.0F
+                1.0F
             )
         )
 
@@ -84,14 +100,8 @@ class MainActivity : AppCompatActivity() {
                 "Action",
                 R.drawable.ic_poster_sonic,
                 R.raw.video_sonic,
-                0.0F
+                3.0F
             )
         )
-
-        rv_movie.adapter = MovieAdapter(dataList) {
-            val intent = Intent(this, DetailActivity::class.java)
-                .putExtra("data", it)
-            startActivity(intent)
-        }
     }
 }
