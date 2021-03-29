@@ -1,9 +1,13 @@
-package com.example.bcads4
+package com.example.bcads4.module.list
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bcads4.R
+import com.example.bcads4.adapter.AllMovieAdapter
+import com.example.bcads4.model.FilmModel
+import com.example.bcads4.module.detail.DetailActivity
 import kotlinx.android.synthetic.main.content_all_movie.*
 
 class AllMovieActivity : AppCompatActivity() {

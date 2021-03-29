@@ -1,10 +1,14 @@
-package com.example.bcads4
+package com.example.bcads4.module.home
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bcads4.module.list.AllMovieActivity
+import com.example.bcads4.R
+import com.example.bcads4.adapter.MovieAdapter
+import com.example.bcads4.model.FilmModel
+import com.example.bcads4.module.detail.DetailActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -38,8 +42,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_ad_astra,
-                R.raw.video_a_rainy_day,
+                    R.drawable.ic_ad_astra,
+                    R.raw.video_a_rainy_day,
                 3.0F
             )
         )
@@ -50,8 +54,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_avengers,
-                R.raw.video_sample,
+                    R.drawable.ic_avengers,
+                    R.raw.video_sample,
                 5.0F
             )
         )
@@ -62,8 +66,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_poster_a_rainy_day_in_new_york,
-                R.raw.video_sample,
+                    R.drawable.ic_poster_a_rainy_day_in_new_york,
+                    R.raw.video_sample,
                 4.0F
             )
         )
@@ -74,8 +78,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_poster_sonic,
-                R.raw.video_sonic,
+                    R.drawable.ic_poster_sonic,
+                    R.raw.video_sonic,
                 2.0F
             )
         )
@@ -86,8 +90,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_ad_astra,
-                R.raw.video_sample,
+                    R.drawable.ic_ad_astra,
+                    R.raw.video_sample,
                 1.0F
             )
         )
@@ -98,8 +102,8 @@ class MainActivity : AppCompatActivity() {
                 "A Rainy Day in New York",
                 "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
                 "Action",
-                R.drawable.ic_poster_sonic,
-                R.raw.video_sonic,
+                    R.drawable.ic_poster_sonic,
+                    R.raw.video_sonic,
                 3.0F
             )
         )

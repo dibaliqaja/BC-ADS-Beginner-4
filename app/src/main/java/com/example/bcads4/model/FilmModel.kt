@@ -1,4 +1,4 @@
-package com.example.bcads4
+package com.example.bcads4.model
 
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
