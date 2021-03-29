@@ -8,7 +8,7 @@ import com.example.bcads4.database.DatabaseContract.NoteColumns.Companion.TABLE_
 import com.example.bcads4.database.DatabaseContract.NoteColumns.Companion._ID
 import java.sql.SQLException
 
-internal class MovieHelper (context: Context) {
+class MovieHelper (context: Context) {
 
     companion object {
         private const val DATABASE_TABLE = TABLE_NAME
