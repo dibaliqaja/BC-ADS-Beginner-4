@@ -1,27 +1,51 @@
 package com.example.bcads4.module.home
 
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bcads4.LoginActivity
 import com.example.bcads4.module.list.AllMovieActivity
 import com.example.bcads4.R
 import com.example.bcads4.adapter.MovieAdapter
+import com.example.bcads4.api.DummyData
 import com.example.bcads4.model.FilmModel
 import com.example.bcads4.module.detail.DetailActivity
+import com.example.bcads4.utils.Const.LOGIN_CODE
+import com.example.bcads4.utils.UserPreference
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
     private val dataList = ArrayList<FilmModel>()
+    lateinit var userPreference: UserPreference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        userPreference = UserPreference(this)
+
+        initListener()
+        getData()
+    }
+
+    private fun initListener() {
+        tv_user.setOnClickListener {
+            if (userPreference.getUserStatus()) {
+
+            } else {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivityForResult(intent, LOGIN_CODE)
+            }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun initView() {
         rv_movie.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-
-        loadDataSample()
-
         rv_movie.adapter = MovieAdapter(dataList) {
             val intent = Intent(this, DetailActivity::class.java)
                 .putExtra("data", it)
@@ -33,79 +57,49 @@ class MainActivity : AppCompatActivity() {
                 .putExtra("data", dataList)
             startActivity(intent)
         }
+
+        if (userPreference.getUserStatus()) {
+            tv_user.text = userPreference.getUserName()
+            tv_desc_user.text = "Thanks for join, do you want to exit?"
+            btn_logout.visibility = View.VISIBLE
+        } else {
+            tv_user.text = "Login"
+            tv_desc_user.text = "Save your favorite movie"
+            btn_logout.visibility = View.INVISIBLE
+        }
     }
 
-    private fun loadDataSample() {
-        dataList.add(
-            FilmModel(
-                "1",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_ad_astra,
-                    R.raw.video_a_rainy_day,
-                3.0F
+    private fun getData() {
+        for (i in DummyData.titleMovie.indices) {
+            dataList.add(
+                FilmModel(
+                    i+1,
+                    DummyData.titleMovie[i],
+                    DummyData.descMovie[i],
+                    DummyData.genreMovie[i],
+                    DummyData.posterMovie[i],
+                    DummyData.trailerMovie[i],
+                    DummyData.ratingMovie[i],
+                )
             )
-        )
+        }
 
-        dataList.add(
-            FilmModel(
-                "2",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_avengers,
-                    R.raw.video_sample,
-                5.0F
-            )
-        )
+        initView()
+    }
 
-        dataList.add(
-            FilmModel(
-                "3",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_poster_a_rainy_day_in_new_york,
-                    R.raw.video_sample,
-                4.0F
-            )
-        )
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
 
-        dataList.add(
-            FilmModel(
-                "4",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_poster_sonic,
-                    R.raw.video_sonic,
-                2.0F
-            )
-        )
+        if (requestCode == LOGIN_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                initView()
+            }
+        }
+    }
 
-        dataList.add(
-            FilmModel(
-                "5",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_ad_astra,
-                    R.raw.video_sample,
-                1.0F
-            )
-        )
+    override fun onResume() {
+        super.onResume()
 
-        dataList.add(
-            FilmModel(
-                "6",
-                "A Rainy Day in New York",
-                "Kami belum memiliki kilasan singkat dalam bahasa Indonesia. Bantu kami menambahkannya.",
-                "Action",
-                    R.drawable.ic_poster_sonic,
-                    R.raw.video_sonic,
-                3.0F
-            )
-        )
+        initView()
     }
 }
