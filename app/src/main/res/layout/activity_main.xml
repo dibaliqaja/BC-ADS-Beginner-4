@@ -33,6 +33,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_movie"
+        android:visibility="invisible"
         android:layout_width="match_parent"
         android:layout_height="175dp"
         android:layout_marginStart="14dp"
@@ -42,6 +43,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:listitem="@layout/item_movie_horizontal" />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/sf_movie"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:listitem="@layout/item_movie_horizontal">
+
+        <include layout="@layout/shimmer_horizontal" />
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
 
     <TextView
         android:id="@+id/textView"

@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.bcads4.LoginActivity
@@ -28,14 +29,22 @@ class MainActivity : AppCompatActivity() {
 
         userPreference = UserPreference(this)
 
-        initListener()
-        getData()
+        sf_movie.startShimmer()
+        val handler = Handler()
+        handler.postDelayed({
+            sf_movie.stopShimmer()
+            sf_movie.visibility = View.GONE
+            rv_movie.visibility = View.VISIBLE
+
+            initListener()
+            getData()
+        }, 5000)
     }
 
     private fun initListener() {
         tv_user.setOnClickListener {
             if (userPreference.getUserStatus()) {
-
+                // Data List
             } else {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivityForResult(intent, LOGIN_CODE)
