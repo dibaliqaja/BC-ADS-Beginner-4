@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BCADS4">
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".SplashScreenActivity">
+        <activity android:name=".module.login.LoginActivity" />
+        <activity android:name=".SplashScreenActivity"
+            android:theme="@style/Theme.BCADS4.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -20,6 +21,9 @@
         <activity
             android:name=".module.list.AllMovieActivity"
             android:label="@string/title_activity_all_movie"
+            android:theme="@style/Theme.BCADS4.NoActionBar" />
+        <activity android:name=".module.wishlist.WishlistMovieActivity"
+            android:label="@string/wishlist"
             android:theme="@style/Theme.BCADS4.NoActionBar" />
         <activity android:name=".module.detail.DetailActivity">
             <meta-data

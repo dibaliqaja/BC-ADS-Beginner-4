@@ -8,13 +8,14 @@ import android.os.Bundle
 import android.os.Handler
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.bcads4.LoginActivity
+import com.example.bcads4.module.login.LoginActivity
 import com.example.bcads4.module.list.AllMovieActivity
 import com.example.bcads4.R
 import com.example.bcads4.adapter.MovieAdapter
 import com.example.bcads4.api.DummyData
 import com.example.bcads4.model.FilmModel
 import com.example.bcads4.module.detail.DetailActivity
+import com.example.bcads4.module.wishlist.WishlistMovieActivity
 import com.example.bcads4.utils.Const.LOGIN_CODE
 import com.example.bcads4.utils.UserPreference
 import kotlinx.android.synthetic.main.activity_main.*
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     private fun initListener() {
         tv_user.setOnClickListener {
             if (userPreference.getUserStatus()) {
-                // Data List
+                startActivity(Intent(this, WishlistMovieActivity::class.java))
             } else {
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivityForResult(intent, LOGIN_CODE)
@@ -70,6 +71,8 @@ class MainActivity : AppCompatActivity() {
         if (userPreference.getUserStatus()) {
             tv_user.text = userPreference.getUserName()
             tv_desc_user.text = "Thanks for join, do you want to exit?"
+            tv_movie_size.text = dataList.size.toString()
+            // tv_favorite_size.text = size.toString()
             btn_logout.visibility = View.VISIBLE
         } else {
             tv_user.text = "Login"
@@ -101,6 +104,7 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == LOGIN_CODE) {
             if (resultCode == Activity.RESULT_OK) {
+                startActivity(Intent(this, WishlistMovieActivity::class.java))
                 initView()
             }
         }

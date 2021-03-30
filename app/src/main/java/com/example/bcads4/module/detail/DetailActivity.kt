@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.MediaController
 import android.widget.Toast
-import com.example.bcads4.LoginActivity
+import com.example.bcads4.module.login.LoginActivity
 import com.example.bcads4.R
 import com.example.bcads4.database.DatabaseContract.NoteColumns.Companion.DESC
 import com.example.bcads4.database.DatabaseContract.NoteColumns.Companion.GENRE

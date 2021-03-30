@@ -1,9 +1,10 @@
-package com.example.bcads4
+package com.example.bcads4.module.login
 
 import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.bcads4.R
 import com.example.bcads4.utils.UserPreference
 import kotlinx.android.synthetic.main.activity_login.*
 
