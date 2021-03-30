@@ -47,5 +47,4 @@ class MovieAdapter (
 
     override fun getItemCount(): Int = data.size
 
-
 }

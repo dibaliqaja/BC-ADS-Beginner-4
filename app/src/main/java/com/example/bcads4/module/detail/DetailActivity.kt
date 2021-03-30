@@ -40,7 +40,7 @@ class DetailActivity : AppCompatActivity() {
         initListener()
     }
 
-    fun initView() {
+    private fun initView() {
         tv_title.text = data!!.title
         tv_genre.text = data.genre
         tv_desc.text = data.desc
@@ -48,7 +48,7 @@ class DetailActivity : AppCompatActivity() {
         statusFavorite()
     }
 
-    fun initListener() {
+    private fun initListener() {
         val mediaController = MediaController(this)
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
@@ -80,7 +80,7 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun iconFavorite(boolean: Boolean) {
+    private fun iconFavorite(boolean: Boolean) {
         if (boolean) {
             statusFavorite = true
             iv_favorite.setImageResource(R.drawable.ic_baseline_favorite_24)
@@ -90,8 +90,8 @@ class DetailActivity : AppCompatActivity() {
         }
     }
 
-    fun statusFavorite() {
-        var cursor = noteHelper.queryById(data.id.toString())
+    private fun statusFavorite() {
+        val cursor = noteHelper.queryById(data.id.toString())
         if (cursor.moveToNext()) {
             iconFavorite(true)
         } else {
