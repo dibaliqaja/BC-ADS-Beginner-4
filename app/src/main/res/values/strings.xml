@@ -18,4 +18,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="movie_apps">Movie Apps</string>
     <string name="favorite">Favorite</string>
+    <string name="username">Username</string>
+    <string name="login">Login</string>
 </resources>

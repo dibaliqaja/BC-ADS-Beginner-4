@@ -18,6 +18,12 @@ class UserPreference(context: Context) {
         return preference.getBoolean(USER_STATUS, false)
     }
 
+    fun setUserName(value: String) {
+        val editor = preference.edit()
+        editor.putString(USER_NAME, value)
+        editor.apply()
+    }
+
     fun getUserName() : String? {
         return preference.getString(USER_NAME, "")
     }
